@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4641C5B205E6F5200DB2E5B /* baka_20180312.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C4641C5A205E6F5200DB2E5B /* baka_20180312.m4a */; };
+		C4641C5D205E9AF200DB2E5B /* baka_20180305.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C4641C5C205E9AF200DB2E5B /* baka_20180305.m4a */; };
 		C48E6D6E2031CD7A00974DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E6D6D2031CD7A00974DD6 /* AppDelegate.swift */; };
 		C48E6D702031CD7A00974DD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E6D6F2031CD7A00974DD6 /* ViewController.swift */; };
 		C48E6D732031CD7A00974DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48E6D712031CD7A00974DD6 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4641C5A205E6F5200DB2E5B /* baka_20180312.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baka_20180312.m4a; sourceTree = "<group>"; };
+		C4641C5C205E9AF200DB2E5B /* baka_20180305.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baka_20180305.m4a; sourceTree = "<group>"; };
 		C48E6D6A2031CD7A00974DD6 /* Radio Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48E6D6D2031CD7A00974DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48E6D6F2031CD7A00974DD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4641C5E205E9C7300DB2E5B /* audiofiles */ = {
+			isa = PBXGroup;
+			children = (
+				C4641C5C205E9AF200DB2E5B /* baka_20180305.m4a */,
+				C4641C5A205E6F5200DB2E5B /* baka_20180312.m4a */,
+			);
+			path = audiofiles;
+			sourceTree = "<group>";
+		};
 		C48E6D612031CD7A00974DD6 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +71,7 @@
 				C48E6D6F2031CD7A00974DD6 /* ViewController.swift */,
 				C48E6D712031CD7A00974DD6 /* Main.storyboard */,
 				C48E6D742031CD7A00974DD6 /* Assets.xcassets */,
+				C4641C5E205E9C7300DB2E5B /* audiofiles */,
 				C48E6D762031CD7A00974DD6 /* LaunchScreen.storyboard */,
 				C48E6D792031CD7A00974DD6 /* Info.plist */,
 			);
@@ -123,8 +137,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4641C5D205E9AF200DB2E5B /* baka_20180305.m4a in Resources */,
 				C48E6D782031CD7A00974DD6 /* LaunchScreen.storyboard in Resources */,
 				C48E6D752031CD7A00974DD6 /* Assets.xcassets in Resources */,
+				C4641C5B205E6F5200DB2E5B /* baka_20180312.m4a in Resources */,
 				C48E6D732031CD7A00974DD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
