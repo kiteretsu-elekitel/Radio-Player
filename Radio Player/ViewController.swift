@@ -12,43 +12,92 @@ import AVFoundation
 class ViewController: UIViewController, AVAudioPlayerDelegate {
 
 	var player = AVAudioPlayer()
-
+	var currentTimer: Timer?
+	var isPlaying: Bool = false
+	
+	@IBOutlet var endTimeLabel: UILabel!
+	@IBOutlet var currentTimeLabel: UILabel!
+	@IBOutlet var timeSlider: UISlider!
+	
+	let audioPath = Bundle.main.path(forResource: "baka_20180312", ofType: "m4a")
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 
 	@IBAction func tapStartButton(_ sender: Any) {
-		player.play()
+		let button = (sender as! UIButton)
+		if isPlaying == false {
+			player.play()
+			isPlaying = true
+			let buttonImage = UIImage(named: "pause")
+			button.setImage(buttonImage, for: UIControlState())
+			currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(currentTimer) in self.displayCurrentTime()})
+		} else {
+			player.pause()
+			isPlaying = false
+			let buttonImage = UIImage(named: "start")
+			button.setImage(buttonImage, for: UIControlState())
+			currentTimer?.invalidate()
+		}
 	}
-	
-	
-	@IBAction func tapStopButton(_ sender: Any) {
-		player.pause()
-	}
-	
-	func audioPlayerDif(){
+	@IBAction func moveTimeSlider(_ sender: Any) {
+		let slider = (sender as! UISlider)
+		let duration = player.duration
 		
+		slider.minimumValue = 0
+		slider.maximumValue = Float(duration)
+	
+	}
+	
+	//make audio Player instance
+	func audioPlayerDif(audioPath: String){
 		// 音声ファイルのパスを定義 ファイル名, 拡張子を定義
-		let audioPath = Bundle.main.path(forResource: "baka_20180312", ofType: "m4a")
+		//let audioPath = Bundle.main.path(forResource: "baka_20180312", ofType: "m4a")
 		//let audioURL = URL(fileURLWithPath: audioPath!)
-
-		//ファイルが存在しない、拡張子が誤っている、などのエラーを防止するために実行テスト(try)する。
-		
-		if let path = audioPath {
-			print("ditected audio file")
-			do{
-				//tryで、ファイルが問題なければ player変数にaudioPathを定義
-				try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: path) as URL)
-			}catch{
-				print("file type is not supporting")
-			}
+		do {
+			try player = AVAudioPlayer(contentsOf: NSURL(fileURLWithPath: audioPath) as URL)
+		} catch {
+			print("file type is not supporting")
 		}
 		
+		let duration = Int(player.duration)
+		endTimeLabel.text = secToHourFormat(argSec: duration)
 	}
+	
+
+	func displayCurrentTime() {
+		let rawCurrenTime = player.currentTime
+		let currentTime = Int(rawCurrenTime)
+		currentTimeLabel.text = secToHourFormat(argSec: currentTime)
+	}
+	
+	func secToHourFormat(argSec: Int) -> String {
+		var hour: Int
+		var min: Int
+		var sec: Int
+		
+		if argSec < 60 {
+			return "00:" + "00:" + String(format: "%02d", argSec)
+		}
+		min = argSec / 60
+		sec = argSec % min
+		
+		if argSec < 3600 {
+			return "00:" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
+		}
+		hour = min / 60
+		min = min % hour
+		
+		return String(format: "%02d", hour) + ":" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
+		
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		audioPlayerDif()
+
+		audioPlayerDif(audioPath: audioPath!)
 		
 		// Do any additional setup after loading the view, typically from a nib.
 	}

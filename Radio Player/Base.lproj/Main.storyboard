@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,38 +15,74 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Radio_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1m-Wx-oVf" userLabel="stopButton">
-                                <rect key="frame" x="163" y="493" width="48" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="stop"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="DGY-vg-1Rv" userLabel="slider">
+                                <rect key="frame" x="78.999999999999986" y="433" width="252.66666666666663" height="99"/>
                                 <connections>
-                                    <action selector="tapStopButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eXT-1T-C0Y"/>
+                                    <action selector="moveTimeSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="J7F-lo-H50"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtm-Xc-vgF" userLabel="startButton">
-                                <rect key="frame" x="158" y="426" width="58" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.20000000000000001" height="0.20000000000000001"/>
-                                <state key="normal" image="start"/>
-                                <connections>
-                                    <action selector="tapStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udD-ia-1lm"/>
-                                </connections>
-                            </button>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jih-yw-tYF" userLabel="currentTime">
+                                <rect key="frame" x="5" y="472.66666666666669" width="71.333333333333329" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asE-dA-HUO" userLabel="endTime">
+                                <rect key="frame" x="334.66666666666669" y="472.66666666666669" width="71.333333333333314" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A15-iM-HDO">
+                                <rect key="frame" x="182" y="583" width="50" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dtm-Xc-vgF" userLabel="startButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="contentStretch" x="0.0" y="0.0" width="0.20000000000000001" height="0.20000000000000001"/>
+                                        <state key="normal" image="start"/>
+                                        <connections>
+                                            <action selector="tapStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="udD-ia-1lm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KcR-7a-BID"/>
+                                    <constraint firstItem="Dtm-Xc-vgF" firstAttribute="centerX" secondItem="A15-iM-HDO" secondAttribute="centerX" id="gKu-j0-HgG"/>
+                                    <constraint firstAttribute="width" constant="50" id="hXp-OM-Yeg"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jih-yw-tYF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="12L-E7-VKC"/>
+                            <constraint firstItem="A15-iM-HDO" firstAttribute="top" secondItem="DGY-vg-1Rv" secondAttribute="bottom" constant="52" id="BgB-6c-F8Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="A15-iM-HDO" secondAttribute="bottom" constant="103" id="Bot-wH-pCN"/>
+                            <constraint firstItem="asE-dA-HUO" firstAttribute="leading" secondItem="DGY-vg-1Rv" secondAttribute="trailing" constant="5" id="For-lL-b54"/>
+                            <constraint firstItem="jih-yw-tYF" firstAttribute="centerY" secondItem="DGY-vg-1Rv" secondAttribute="centerY" id="f4I-ti-8Wa"/>
+                            <constraint firstItem="jih-yw-tYF" firstAttribute="baseline" secondItem="asE-dA-HUO" secondAttribute="baseline" id="jsv-fw-7gg"/>
+                            <constraint firstItem="DGY-vg-1Rv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="413" id="kFv-9O-55l"/>
+                            <constraint firstItem="DGY-vg-1Rv" firstAttribute="leading" secondItem="jih-yw-tYF" secondAttribute="trailing" constant="5" id="kfk-K9-7qV"/>
+                            <constraint firstItem="DGY-vg-1Rv" firstAttribute="leading" secondItem="jih-yw-tYF" secondAttribute="trailing" constant="5" id="lib-w1-5vB"/>
+                            <constraint firstItem="A15-iM-HDO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uIs-PO-M5V"/>
+                            <constraint firstAttribute="trailing" secondItem="asE-dA-HUO" secondAttribute="trailing" constant="8" id="xg2-dN-QYH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="currentTimeLabel" destination="jih-yw-tYF" id="35b-Vj-nH1"/>
+                        <outlet property="endTimeLabel" destination="asE-dA-HUO" id="g75-IK-yyZ"/>
+                        <outlet property="timeSlider" destination="DGY-vg-1Rv" id="Bt5-g9-rq8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="30.134932533733135"/>
+            <point key="canvasLocation" x="23.188405797101453" y="28.532608695652176"/>
         </scene>
     </scenes>
     <resources>
-        <image name="start" width="48" height="48"/>
-        <image name="stop" width="48" height="48"/>
+        <image name="start" width="85" height="85"/>
     </resources>
 </document>
