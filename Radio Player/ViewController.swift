@@ -32,8 +32,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 			player.play()
 			isPlaying = true
 			let buttonImage = UIImage(named: "pause")
+			
 			button.setImage(buttonImage, for: UIControlState())
-			currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(currentTimer) in self.displayCurrentTime()})
+			
+			currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(currentTimer) in
+				self.displayCurrentTime()
+				self.timeSlider.value = Float(floor(self.player.currentTime / self.player.duration * 100) / 100)
+				print("music value is", floor(self.player.currentTime / self.player.duration * 100) / 100)
+				print("slider value is \(self.timeSlider.value)")
+			})
 		} else {
 			player.pause()
 			isPlaying = false
@@ -48,6 +55,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		
 		slider.minimumValue = 0
 		slider.maximumValue = Float(duration)
+		
 	
 	}
 	
@@ -87,11 +95,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		if argSec < 3600 {
 			return "00:" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
 		}
-		hour = min / 60
-		min = min % hour
-		
-		return String(format: "%02d", hour) + ":" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
-		
+		if argSec >= 3600 {
+			hour = min / 60
+			min = min % hour
+			return String(format: "%02d", hour) + ":" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
+		}
+		return String(0)
+
 	}
 
 	override func viewDidLoad() {
