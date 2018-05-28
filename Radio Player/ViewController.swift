@@ -36,7 +36,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 
 			currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(currentTimer) in
 				self.displayCurrentTime()
-				self.timeSlider.value = Float(floor(self.player.currentTime / self.player.duration * 100) / 100)
+				self.timeSlider.value = Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000)
+				print(Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000))
+				
 			})
 		} else {
 			player.pause()
