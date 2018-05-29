@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C43DC34F205FA03000EA6C57 /* baka_20180312.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C43DC34E205FA03000EA6C57 /* baka_20180312.m4a */; };
 		C48D428320BD661A00E3E1C0 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D428220BD661A00E3E1C0 /* Player.swift */; };
+		C48D428520BD8BE500E3E1C0 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48D428420BD8BE500E3E1C0 /* TimeFormat.swift */; };
 		C48E6D6E2031CD7A00974DD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E6D6D2031CD7A00974DD6 /* AppDelegate.swift */; };
 		C48E6D702031CD7A00974DD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E6D6F2031CD7A00974DD6 /* ViewController.swift */; };
 		C48E6D732031CD7A00974DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48E6D712031CD7A00974DD6 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		C43DC34E205FA03000EA6C57 /* baka_20180312.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = baka_20180312.m4a; sourceTree = "<group>"; };
 		C48D428220BD661A00E3E1C0 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		C48D428420BD8BE500E3E1C0 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		C48E6D6A2031CD7A00974DD6 /* Radio Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Radio Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48E6D6D2031CD7A00974DD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48E6D6F2031CD7A00974DD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			children = (
 				C48E6D6D2031CD7A00974DD6 /* AppDelegate.swift */,
 				C48E6D6F2031CD7A00974DD6 /* ViewController.swift */,
+				C48D428420BD8BE500E3E1C0 /* TimeFormat.swift */,
 				C48D428220BD661A00E3E1C0 /* Player.swift */,
 				C43DC34E205FA03000EA6C57 /* baka_20180312.m4a */,
 				C48E6D712031CD7A00974DD6 /* Main.storyboard */,
@@ -154,6 +157,7 @@
 				C48E6D702031CD7A00974DD6 /* ViewController.swift in Sources */,
 				C48D428320BD661A00E3E1C0 /* Player.swift in Sources */,
 				C48E6D6E2031CD7A00974DD6 /* AppDelegate.swift in Sources */,
+				C48D428520BD8BE500E3E1C0 /* TimeFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
