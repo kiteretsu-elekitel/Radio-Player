@@ -11,6 +11,7 @@ import AVFoundation
 class ViewController: UIViewController, AVAudioPlayerDelegate {
 
 	var player = AVAudioPlayer()
+	//var player = Player(file: "baka_20180312", type: "m4a")
 	var currentTimer: Timer?
 	var isPlaying: Bool = false
 
@@ -37,7 +38,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 			currentTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {(currentTimer) in
 				self.displayCurrentTime()
 				self.timeSlider.value = Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000)
-				print(Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000))
+				//print("current time is \(Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000))")
+				print("current time is \(self.player.currentTime)")
 				
 			})
 		} else {
@@ -47,15 +49,6 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 			button.setImage(buttonImage, for: UIControlState())
 			currentTimer?.invalidate()
 		}
-	}
-	@IBAction func moveTimeSlider(_ sender: Any) {
-		let slider = (sender as! UISlider)
-		let duration = player.duration
-
-		slider.minimumValue = 0
-		slider.maximumValue = Float(duration)
-
-	
 	}
 
 	//make audio Player instance
@@ -70,49 +63,19 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		}
 
 		let duration = Int(player.duration)
-		endTimeLabel.text = secToHourFormat(argSec: duration)
+		let timeFormat = TimeFormat()
+		endTimeLabel.text = timeFormat.secToHourFormat(argSec: duration)
 	}
 
 
 	func displayCurrentTime() {
+		let formatter = TimeFormat()
 		let rawCurrenTime = player.currentTime
 		let currentTime = Int(rawCurrenTime)
-		currentTimeLabel.text = secToHourFormat(argSec: currentTime)
+		//currentTimeLabel.text = secToHourFormat(argSec: currentTime)
+		currentTimeLabel.text = formatter.secToHourFormat(argSec: currentTime)
 	}
 
-	func secToHourFormat(argSec: Int) -> String {
-		var hour: Int
-		var min: Int
-		var sec: Int
-		print(argSec)
-
-		if argSec < 60 {
-			print("sec time is less then 60")
-			return "00:" + "00:" + String(format: "%02d", argSec)
-		}
-		
-		min = argSec / 60
-		if min == 1 {
-			sec = argSec - 60
-		} else {
-			sec = argSec % min
-		}
-
-		if argSec < 3600 {
-			return "00:" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
-		}
-		if argSec >= 3600 {
-			hour = min / 60
-			if hour == 1 {
-				min = min - 60
-			} else {
-				min = min % hour
-			}
-			return String(format: "%02d", hour) + ":" + String(format: "%02d", min) + ":" + String(format: "%02d", sec)
-		}
-		return String(0)
-
-	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
