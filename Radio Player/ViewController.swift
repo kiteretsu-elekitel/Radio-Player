@@ -67,6 +67,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		endTimeLabel.text = timeFormat.secToHourFormat(argSec: duration)
 	}
 
+	@IBAction func moveSlider(_ sender: Any) {
+		self.player.currentTime = TimeInterval(Double(timeSlider.value) * player.duration)
+	}
 
 	func displayCurrentTime() {
 		let formatter = TimeFormat()
