@@ -7,7 +7,6 @@
 //
 import UIKit
 import AVFoundation
-
 class ViewController: UIViewController, AVAudioPlayerDelegate {
 
 	var player = AVAudioPlayer()
@@ -40,7 +39,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 				self.timeSlider.value = Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000)
 				//print("current time is \(Float(floor(self.player.currentTime / self.player.duration * 10000) / 10000))")
 				print("current time is \(self.player.currentTime)")
-				
+
 			})
 		} else {
 			player.pause()
@@ -77,6 +76,20 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		let currentTime = Int(rawCurrenTime)
 		//currentTimeLabel.text = secToHourFormat(argSec: currentTime)
 		currentTimeLabel.text = formatter.secToHourFormat(argSec: currentTime)
+	}
+
+	@IBAction func pushedSeekButton(_ sender: UIButton) {
+		var seektime:Double = 0
+		if sender.tag == 1 {
+			seektime = 30
+		} else {
+			seektime = -30
+		}
+		let timeFormatter = TimeFormat()
+		var currentTime = player.currentTime
+		player.currentTime = currentTime + seektime
+		currentTime = player.currentTime
+		currentTimeLabel.text = timeFormatter.secToHourFormat(argSec: Int(currentTime))
 	}
 
 
