@@ -15,6 +15,7 @@
 		C48E6D732031CD7A00974DD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48E6D712031CD7A00974DD6 /* Main.storyboard */; };
 		C48E6D752031CD7A00974DD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48E6D742031CD7A00974DD6 /* Assets.xcassets */; };
 		C48E6D782031CD7A00974DD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48E6D762031CD7A00974DD6 /* LaunchScreen.storyboard */; };
+		C4EC374E20D684EE005B9216 /* FileList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EC374D20D684EE005B9216 /* FileList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		C48E6D742031CD7A00974DD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C48E6D772031CD7A00974DD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C48E6D792031CD7A00974DD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4EC374D20D684EE005B9216 /* FileList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				C48D428220BD661A00E3E1C0 /* Player.swift */,
 				C43DC34E205FA03000EA6C57 /* baka_20180312.m4a */,
 				C48E6D712031CD7A00974DD6 /* Main.storyboard */,
+				C4EC374D20D684EE005B9216 /* FileList.swift */,
 				C48E6D742031CD7A00974DD6 /* Assets.xcassets */,
 				C4641C5E205E9C7300DB2E5B /* audiofiles */,
 				C48E6D762031CD7A00974DD6 /* LaunchScreen.storyboard */,
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48E6D702031CD7A00974DD6 /* ViewController.swift in Sources */,
+				C4EC374E20D684EE005B9216 /* FileList.swift in Sources */,
 				C48D428320BD661A00E3E1C0 /* Player.swift in Sources */,
 				C48E6D6E2031CD7A00974DD6 /* AppDelegate.swift in Sources */,
 				C48D428520BD8BE500E3E1C0 /* TimeFormat.swift in Sources */,
