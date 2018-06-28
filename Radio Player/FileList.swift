@@ -7,7 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class FileList {
+class GenerateFileList {
 	
 }
+
+

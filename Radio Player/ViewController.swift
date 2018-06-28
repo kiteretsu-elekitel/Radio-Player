@@ -7,8 +7,11 @@
 //
 import UIKit
 import AVFoundation
-class ViewController: UIViewController, AVAudioPlayerDelegate {
+class ViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource {
 
+
+	@IBOutlet var programListView: UITableView!
+	
 	var player = AVAudioPlayer()
 	//var player = Player(file: "baka_20180312", type: "m4a")
 	var currentTimer: Timer?
@@ -92,13 +95,25 @@ class ViewController: UIViewController, AVAudioPlayerDelegate {
 		currentTimeLabel.text = timeFormatter.secToHourFormat(argSec: Int(currentTime))
 	}
 
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 20
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+		cell.textLabel?.text = "test"
+		cell.detailTextLabel?.text = "testtest"
+		return cell
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		audioPlayerDif(audioPath: audioPath!)
+		programListView.delegate = self
+		programListView.dataSource = self
+	
 
-		// Do any additional setup after loading the view, typically from a nib.
 	}
 }
 
