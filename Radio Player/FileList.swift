@@ -10,8 +10,19 @@ import Foundation
 import UIKit
 
 class GenerateFileList {
-	var filelistArray: [String] = []
+	private var filelistArray: [String] = []
+	var files: [String] {
+		get {
+			return filelistArray
+		}
+	}
 	
+	var fileNum: Int {
+		get {
+			return filelistArray.count
+		}
+	}
+
 	func detectFile() -> Array<URL> {
 		var fileList: Array<URL> = Array<URL>()
 		
