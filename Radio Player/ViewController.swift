@@ -7,10 +7,13 @@
 //
 import UIKit
 import AVFoundation
+import Foundation
 class ViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource {
 
 
 	@IBOutlet var programListView: UITableView!
+	
+	let filelist = GenerateFileList()
 	
 	var player = AVAudioPlayer()
 	//var player = Player(file: "baka_20180312", type: "m4a")
@@ -96,7 +99,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITableViewDelega
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 20
+		let num = filelist.getProgramNum(URL: "http://192.168.0.10/baka")
+		return num
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
